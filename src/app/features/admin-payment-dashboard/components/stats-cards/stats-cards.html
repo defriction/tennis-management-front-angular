@@ -1,0 +1,43 @@
+<div class="stats-grid">
+    <!-- Total Registered Card -->
+    <div class="stat-card">
+        <div class="card-header">
+            <div class="icon-container icon-blue">
+                <ng-icon name="heroUserGroup" size="24"></ng-icon>
+            </div>
+            <p class="stat-label">Total Registrados</p>
+        </div>
+        <p class="stat-value">
+            {{ stats.totalPlayers }}
+            <span class="stat-unit">Jugadores</span>
+        </p>
+    </div>
+
+    <!-- Confirmed Revenue Card -->
+    <div class="stat-card stat-card-highlighted">
+        <div class="card-header">
+            <div class="icon-container icon-green">
+                <ng-icon name="heroCheckCircle" size="24"></ng-icon>
+            </div>
+            <p class="stat-label">Ingresos Confirmados</p>
+        </div>
+        <p class="stat-value">
+            ${{ stats.confirmedRevenue | number:'1.0-0' }}
+            <span class="stat-unit">({{ stats.confirmedCount }} pagados)</span>
+        </p>
+    </div>
+
+    <!-- Pending Collection Card -->
+    <div class="stat-card">
+        <div class="card-header">
+            <div class="icon-container icon-yellow">
+                <ng-icon name="heroClock" size="24"></ng-icon>
+            </div>
+            <p class="stat-label">Pendiente de Cobro</p>
+        </div>
+        <p class="stat-value">
+            ${{ stats.pendingRevenue | number:'1.0-0' }}
+            <span class="stat-unit">({{ stats.pendingCount }} pendientes)</span>
+        </p>
+    </div>
+</div>

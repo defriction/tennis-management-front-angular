@@ -1,0 +1,35 @@
+<div class="toolbar-container">
+    <!-- Search Input -->
+    <div class="search-wrapper">
+        <div class="search-input">
+            <ng-icon name="heroMagnifyingGlass" class="search-icon" size="20"></ng-icon>
+            <input [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" type="text"
+                placeholder="Buscar por Nombre o Número de teléfono..." class="search-field" />
+        </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions-wrapper">
+        <!-- Category Filter -->
+        <button class="filter-button">
+            <ng-icon name="heroRectangleGroup" size="18"></ng-icon>
+            <span>Todas las Categorías</span>
+            <ng-icon name="heroChevronDown" size="18"></ng-icon>
+        </button>
+
+        <!-- Status Filter -->
+        <button class="filter-button">
+            <ng-icon name="heroFunnel" size="18"></ng-icon>
+            <span>Estado: Todos</span>
+            <ng-icon name="heroChevronDown" size="18"></ng-icon>
+        </button>
+
+        <div class="divider"></div>
+
+        <!-- Export Button -->
+        <button (click)="onExport()" class="export-button">
+            <ng-icon name="heroArrowDownTray" size="18"></ng-icon>
+            <span>Exportar CSV</span>
+        </button>
+    </div>
+</div>

@@ -8,7 +8,17 @@ import {
   heroTrophy,
   heroCreditCard,
   heroArrowRight,
-  heroChevronDown
+  heroChevronDown,
+  heroUserGroup,
+  heroCheckCircle,
+  heroClock,
+  heroMagnifyingGlass,
+  heroFunnel,
+  heroArrowDownTray,
+  heroRectangleGroup,
+  heroEllipsisVertical,
+  heroChevronLeft,
+  heroChevronRight
 } from '@ng-icons/heroicons/outline';
 
 import { routes } from './app.routes';
@@ -24,7 +34,17 @@ export const appConfig: ApplicationConfig = {
       heroTrophy,
       heroCreditCard,
       heroArrowRight,
-      heroChevronDown
+      heroChevronDown,
+      heroUserGroup,
+      heroCheckCircle,
+      heroClock,
+      heroMagnifyingGlass,
+      heroFunnel,
+      heroArrowDownTray,
+      heroRectangleGroup,
+      heroEllipsisVertical,
+      heroChevronLeft,
+      heroChevronRight
     })
   ]
 };

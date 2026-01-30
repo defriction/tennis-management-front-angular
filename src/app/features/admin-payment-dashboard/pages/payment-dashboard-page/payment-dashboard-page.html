@@ -1,1 +1,24 @@
-<p>payment-dashboard-page works!</p>
+<div class="dashboard-page">
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1>Wimbledon 2024 - Gestión de Pagos</h1>
+            <p class="header-subtitle">Administra registros de jugadores, rastrea estados de pago y confirma entradas.
+            </p>
+        </div>
+        <div class="last-updated">
+            <ng-icon name="heroClock" size="18"></ng-icon>
+            <span>Actualizado: Ahora mismo</span>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <app-stats-cards [stats]="stats"></app-stats-cards>
+
+    <!-- Search Toolbar -->
+    <app-search-toolbar (searchChanged)="onSearch($event)" (categoryChanged)="onCategoryChange($event)"
+        (statusChanged)="onStatusChange($event)" (exportClicked)="onExport()"></app-search-toolbar>
+
+    <!-- Payment Table -->
+    <app-payment-table [players]="players" (paymentToggled)="onPaymentToggle($event)"></app-payment-table>
+</div>

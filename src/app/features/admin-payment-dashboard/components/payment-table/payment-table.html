@@ -1,0 +1,98 @@
+<div class="table-container">
+    <div class="table-wrapper">
+        <table class="payment-table">
+            <thead>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Categoría</th>
+                    <th>Teléfono</th>
+                    <th>Método de Pago</th>
+                    <th>Estado</th>
+                    <th class="text-right">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players" class="table-row">
+                    <!-- Player Info -->
+                    <td>
+                        <div class="player-info">
+                            <div class="player-avatar" *ngIf="player.avatar"
+                                [style.background-image]="'url(' + player.avatar + ')'"></div>
+                            <div class="player-avatar-placeholder" *ngIf="!player.avatar">
+                                <ng-icon name="heroUser" size="20"></ng-icon>
+                            </div>
+                            <div class="player-details">
+                                <p class="player-name">{{ player.name }}</p>
+                                <p class="player-reg">Reg: #{{ player.registrationId }}</p>
+                            </div>
+                        </div>
+                    </td>
+
+                    <!-- Category -->
+                    <td>
+                        <span class="category-badge" [ngClass]="getCategoryClass(player.category)">
+                            {{ player.category }}
+                        </span>
+                    </td>
+
+                    <!-- Phone -->
+                    <td>
+                        <div class="phone-info">
+                            <ng-icon name="heroPhone" size="16"></ng-icon>
+                            <span>{{ player.phone }}</span>
+                        </div>
+                    </td>
+
+                    <!-- Payment Method -->
+                    <td>
+                        <div class="payment-method">
+                            <div class="payment-icon">
+                                <ng-icon [name]="getPaymentIcon(player.paymentMethod)" size="18"></ng-icon>
+                            </div>
+                            <span>{{ player.paymentMethod }}</span>
+                        </div>
+                    </td>
+
+                    <!-- Payment Status Toggle -->
+                    <td>
+                        <div class="status-toggle">
+                            <button (click)="togglePayment(player)" class="toggle-switch"
+                                [class.toggle-active]="player.isPaid" role="switch" [attr.aria-checked]="player.isPaid">
+                                <span class="toggle-slider"></span>
+                            </button>
+                            <span class="status-label" [class.status-confirmed]="player.isPaid">
+                                {{ player.isPaid ? 'Confirmado' : 'Pendiente' }}
+                            </span>
+                        </div>
+                    </td>
+
+                    <!-- Actions -->
+                    <td class="text-right">
+                        <button class="action-button">
+                            <ng-icon name="heroEllipsisVertical" size="20"></ng-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container">
+        <div class="pagination-info">
+            <p>Mostrando <span class="font-medium">1</span> a <span class="font-medium">10</span> de <span
+                    class="font-medium">{{ players.length }}</span> resultados</p>
+        </div>
+        <div class="pagination-controls">
+            <button class="pagination-button">
+                <ng-icon name="heroChevronLeft" size="18"></ng-icon>
+            </button>
+            <button class="pagination-button pagination-active">1</button>
+            <button class="pagination-button">2</button>
+            <button class="pagination-button">3</button>
+            <button class="pagination-button">
+                <ng-icon name="heroChevronRight" size="18"></ng-icon>
+            </button>
+        </div>
+    </div>
+</div>
