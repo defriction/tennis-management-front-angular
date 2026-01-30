@@ -1,0 +1,69 @@
+<div class="registration-details-card">
+    <div class="card-header">
+        <ng-icon name="heroCreditCard" class="icon" size="24"></ng-icon>
+        <div class="header-text">
+            <h3>Detalles de Registro</h3>
+            <p>Selecciona tu categoría y método de pago preferido.</p>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <!-- Category Selection -->
+        <div class="section">
+            <label class="section-label">Categoría de Competencia</label>
+            <div class="category-grid">
+                <button (click)="selectCategory('3rd')" [class.selected]="selectedCategory === '3rd'"
+                    class="category-button">
+                    <span class="category-label">3ra</span>
+                    <span class="category-subtitle">AVANZADO</span>
+                </button>
+
+                <button (click)="selectCategory('4th')" [class.selected]="selectedCategory === '4th'"
+                    class="category-button">
+                    <span class="category-label">4ta</span>
+                    <span class="category-subtitle">INTERMEDIO</span>
+                </button>
+
+                <button (click)="selectCategory('women')" [class.selected]="selectedCategory === 'women'"
+                    class="category-button">
+                    <span class="category-label">Fem</span>
+                    <span class="category-subtitle">FEMENINO</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="section">
+            <label class="section-label">Método de Pago</label>
+            <div class="payment-grid">
+                <label class="payment-option">
+                    <input type="radio" name="payment" [checked]="selectedPayment === 'nequi'"
+                        (change)="selectPayment('nequi')" />
+                    <div class="payment-card">
+                        <div class="radio-indicator">
+                            <div class="radio-dot"></div>
+                        </div>
+                        <div class="payment-info">
+                            <span class="payment-name">Nequi</span>
+                            <span class="payment-description">Transferencia instantánea</span>
+                        </div>
+                    </div>
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" [checked]="selectedPayment === 'cash'"
+                        (change)="selectPayment('cash')" />
+                    <div class="payment-card">
+                        <div class="radio-indicator">
+                            <div class="radio-dot"></div>
+                        </div>
+                        <div class="payment-info">
+                            <span class="payment-name">Efectivo</span>
+                            <span class="payment-description">Pagar en cancha</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

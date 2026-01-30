@@ -1,0 +1,23 @@
+<div class="tournament-selector-card">
+    <div class="card-header">
+        <ng-icon name="heroTrophy" class="icon" size="24"></ng-icon>
+        <div class="header-text">
+            <h3>Selección de Torneo</h3>
+            <p>Elige el evento activo en el que deseas competir.</p>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="form-field">
+            <label>Seleccionar Evento</label>
+            <div class="select-wrapper">
+                <select [(ngModel)]="selectedTournamentId" (ngModelChange)="onTournamentChange()">
+                    <option *ngFor="let tournament of tournaments" [value]="tournament.id">
+                        {{ tournament.name }} - {{ tournament.date }}
+                    </option>
+                </select>
+                <ng-icon name="heroChevronDown" class="select-icon" size="20"></ng-icon>
+            </div>
+        </div>
+    </div>
+</div>

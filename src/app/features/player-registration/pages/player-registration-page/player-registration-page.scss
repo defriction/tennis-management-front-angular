@@ -1,0 +1,137 @@
+.registration-page {
+    min-height: 100vh;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2.5rem;
+        background-color: var(--surface);
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: var(--shadow-sm);
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            color: var(--text-primary);
+            font-size: 1.125rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+        }
+
+        .header-right {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2.25rem;
+
+            @media (min-width: 768px) {
+                display: flex;
+            }
+
+            a {
+                color: var(--text-secondary);
+                font-size: 0.875rem;
+                font-weight: 500;
+                text-decoration: none;
+                transition: color 0.2s;
+                position: relative;
+
+                &:hover {
+                    color: var(--primary);
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -0.5rem;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: var(--primary);
+                    transition: width 0.2s;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+
+        .user-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 2px solid var(--primary-light);
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcCYZNLKKuV4BU6ExGnODrXewUYInvpuI-IvBMjZ5_7pbT0Hhx7dedxWEck-caxSbJMrMBRRS0DCDq-6vtzgOtbDjCfVXRCj9Z7Y-K6DCebml3hsqiaGdX51cq7W-5J5VTs2G6GSzFH62rHNyWTiEz3T0G-_CvJtFU_moIsPpcDR1niJUqoSOpFdnZrIOIwiidKHflhaDqF8D-sNxGwWH8fImcMwgLp9F38iqDOPhI07GGoUi7Ce0GFO54DRObTAEDDkwNVlVoFYc');
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2.5rem 1rem;
+    }
+
+    .content-wrapper {
+        max-width: 800px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .headline {
+        text-align: center;
+        margin-bottom: 0.5rem;
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            max-width: 28rem;
+            margin: 0 auto;
+        }
+    }
+}

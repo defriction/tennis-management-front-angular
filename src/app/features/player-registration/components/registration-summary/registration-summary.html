@@ -1,0 +1,20 @@
+<div class="summary-container">
+    <div class="summary-card">
+        <div class="total-section">
+            <span class="total-label">TOTAL A PAGAR</span>
+            <div class="total-amount">
+                <span class="amount">${{ totalAmount | number:'1.0-0' }}</span>
+                <span class="currency">{{ currency }}</span>
+            </div>
+        </div>
+
+        <button (click)="onRegister()" class="register-button">
+            REGISTRARSE AL TORNEO
+            <ng-icon name="heroArrowRight" size="20"></ng-icon>
+        </button>
+    </div>
+
+    <p class="footer-text">
+        Al registrarte, aceptas las <a href="#">Reglas del Torneo</a> y el <a href="#">Código de Conducta</a>.
+    </p>
+</div>

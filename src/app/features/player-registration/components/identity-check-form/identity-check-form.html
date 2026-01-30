@@ -1,0 +1,45 @@
+<div class="identity-check-card">
+    <div class="card-header">
+        <ng-icon name="heroFingerPrint" class="icon" size="24"></ng-icon>
+        <div class="header-text">
+            <h3>Verificación de Identidad</h3>
+            <p>Ingresa tu teléfono para continuar o iniciar el registro.</p>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <!-- Welcome Back Banner -->
+        <div *ngIf="isRecognized" class="welcome-banner">
+            <div class="welcome-content">
+                <div class="avatar">JS</div>
+                <div class="welcome-text">
+                    <p class="welcome-message">Bienvenido de nuevo, <span class="player-name">{{ recognizedPlayerName
+                            }}</span></p>
+                    <p class="welcome-subtitle">Hemos encontrado tu perfil.</p>
+                </div>
+            </div>
+            <button (click)="resetPlayer()" class="reset-button">¿NO ERES TÚ?</button>
+        </div>
+
+        <div class="form-grid">
+            <!-- Phone Number Field -->
+            <div class="form-field">
+                <label>Número de Teléfono</label>
+                <div class="input-wrapper">
+                    <ng-icon name="heroPhone" class="input-icon" size="20"></ng-icon>
+                    <input [(ngModel)]="phoneNumber" (ngModelChange)="onPhoneChange()" type="text"
+                        placeholder="+57 (300) 000-0000" />
+                </div>
+            </div>
+
+            <!-- Full Name Field -->
+            <div class="form-field" [class.disabled]="isRecognized">
+                <label>Nombre Completo</label>
+                <div class="input-wrapper">
+                    <ng-icon name="heroUser" class="input-icon" size="20"></ng-icon>
+                    <input [(ngModel)]="fullName" [disabled]="isRecognized" type="text" placeholder="Juan Pérez" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,118 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles - Tennis Theme */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Primary Colors - Tennis Court Green & Sky Blue */
+    --primary: #2E7D32;
+    /* Tennis court green */
+    --primary-light: #4CAF50;
+    /* Lighter green */
+    --primary-dark: #1B5E20;
+    /* Darker green */
+
+    /* Accent Colors - Tennis Ball Yellow & Championship Gold */
+    --accent: #FDD835;
+    /* Tennis ball yellow */
+    --accent-light: #FFEB3B;
+    /* Lighter yellow */
+    --accent-dark: #F9A825;
+    /* Golden yellow */
+
+    /* Secondary - Court Blue */
+    --secondary: #1976D2;
+    /* Court blue */
+    --secondary-light: #42A5F5;
+    /* Light blue */
+    --secondary-dark: #0D47A1;
+    /* Deep blue */
+
+    /* Backgrounds - Light Theme */
+    --background-primary: #FAFAFA;
+    /* Main background */
+    --background-secondary: #FFFFFF;
+    /* Card background */
+    --background-tertiary: #F5F5F5;
+    /* Subtle background */
+
+    /* Surface Colors */
+    --surface: #FFFFFF;
+    --surface-hover: #F8F9FA;
+    --surface-active: #E8F5E9;
+    /* Light green tint */
+
+    /* Border Colors */
+    --border-light: #E0E0E0;
+    --border-medium: #BDBDBD;
+    --border-dark: #9E9E9E;
+
+    /* Text Colors */
+    --text-primary: #212121;
+    /* Main text */
+    --text-secondary: #616161;
+    /* Secondary text */
+    --text-tertiary: #9E9E9E;
+    /* Muted text */
+    --text-on-primary: #FFFFFF;
+    /* Text on green */
+    --text-on-accent: #212121;
+    /* Text on yellow */
+
+    /* Status Colors */
+    --success: #4CAF50;
+    --warning: #FF9800;
+    --error: #F44336;
+    --info: #2196F3;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ng-icon global styles */
+ng-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-medium);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-dark);
+}
+
+/* Selection color */
+::selection {
+    background-color: var(--accent-light);
+    color: var(--text-primary);
+}

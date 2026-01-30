@@ -1,0 +1,10 @@
+<div class="progress-container">
+    <div class="progress-header">
+        <p class="progress-title">Progreso de Registro</p>
+        <p class="progress-percentage">{{ progress }}% Completado</p>
+    </div>
+    <div class="progress-bar-wrapper">
+        <div class="progress-bar-fill" [style.width.%]="progress"></div>
+    </div>
+    <p class="progress-step">PASO {{ progress / 33 | number:'1.0-0' }}: {{ currentStep | uppercase }}</p>
+</div>
