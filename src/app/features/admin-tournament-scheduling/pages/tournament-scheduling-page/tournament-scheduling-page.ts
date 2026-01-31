@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent } from '@ng-icons/core';
+import { TopNavigation } from '../../../../shared/components/top-navigation/top-navigation';
 import { BasicInfoForm } from '../../components/basic-info-form/basic-info-form';
 import { CategoryTable } from '../../components/category-table/category-table';
 import { CourtAvailability } from '../../components/court-availability/court-availability';
@@ -11,6 +12,7 @@ import { AutomationRules } from '../../components/automation-rules/automation-ru
   imports: [
     CommonModule,
     NgIconComponent,
+    TopNavigation,
     BasicInfoForm,
     CategoryTable,
     CourtAvailability,

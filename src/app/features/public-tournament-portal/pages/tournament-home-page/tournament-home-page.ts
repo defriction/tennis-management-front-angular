@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TopNavigation } from '../../../../shared/components/top-navigation/top-navigation';
 import { TournamentHeader } from '../../components/tournament-header/tournament-header';
 import { ScheduleTabs } from '../../components/schedule-tabs/schedule-tabs';
 import { LiveMatchCard, LiveMatch } from '../../components/live-match-card/live-match-card';
@@ -12,6 +13,7 @@ import { TournamentNewsWidget, TournamentNews } from '../../components/tournamen
   selector: 'app-tournament-home-page',
   imports: [
     CommonModule,
+    TopNavigation,
     TournamentHeader,
     ScheduleTabs,
     LiveMatchCard,

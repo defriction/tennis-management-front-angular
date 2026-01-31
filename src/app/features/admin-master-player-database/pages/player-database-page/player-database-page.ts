@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent } from '@ng-icons/core';
+import { TopNavigation } from '../../../../shared/components/top-navigation/top-navigation';
 import { DatabaseStatsCards, DatabaseStats } from '../../components/database-stats-cards/database-stats-cards';
 import { PlayerSearchToolbar } from '../../components/player-search-toolbar/player-search-toolbar';
 import { PlayersTable, Player } from '../../components/players-table/players-table';
@@ -11,6 +12,7 @@ import { PlayerDetailPanel, PlayerDetail } from '../../components/player-detail-
   imports: [
     CommonModule,
     NgIconComponent,
+    TopNavigation,
     DatabaseStatsCards,
     PlayerSearchToolbar,
     PlayersTable,

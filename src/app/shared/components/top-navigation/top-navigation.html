@@ -1,0 +1,61 @@
+<nav class="top-nav">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo-section">
+            <div class="logo-icon">
+                <ng-icon name="heroTrophy" size="28"></ng-icon>
+            </div>
+            <span class="logo-text">Tennis Manager</span>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a *ngFor="let item of navItems" [routerLink]="item.route" routerLinkActive="active" class="nav-link">
+                <ng-icon [name]="item.icon" size="20"></ng-icon>
+                <span class="nav-label">{{ item.label }}</span>
+            </a>
+        </div>
+
+        <!-- User Menu -->
+        <div class="user-menu" (clickOutside)="closeUserMenu()">
+            <button class="user-button" (click)="toggleUserMenu()">
+                <div class="user-avatar">{{ currentUser.avatar }}</div>
+                <div class="user-info">
+                    <span class="user-name">{{ currentUser.name }}</span>
+                    <span class="user-role">{{ currentUser.role }}</span>
+                </div>
+                <ng-icon name="heroChevronDown" size="16" [class.rotated]="isUserMenuOpen"></ng-icon>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu" [class.open]="isUserMenuOpen">
+                <div class="dropdown-header">
+                    <div class="dropdown-avatar">{{ currentUser.avatar }}</div>
+                    <div class="dropdown-user-info">
+                        <p class="dropdown-name">{{ currentUser.name }}</p>
+                        <p class="dropdown-email">{{ currentUser.email }}</p>
+                    </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="#" class="dropdown-item" (click)="closeUserMenu()">
+                    <ng-icon name="heroUser" size="18"></ng-icon>
+                    <span>Mi Perfil</span>
+                </a>
+
+                <a href="#" class="dropdown-item" (click)="closeUserMenu()">
+                    <ng-icon name="heroCog6Tooth" size="18"></ng-icon>
+                    <span>Configuración</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <button class="dropdown-item logout" (click)="logout()">
+                    <ng-icon name="heroArrowRightOnRectangle" size="18"></ng-icon>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

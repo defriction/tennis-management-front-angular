@@ -1,3 +1,5 @@
+<app-top-navigation></app-top-navigation>
+
 <div class="dashboard-page">
     <!-- Page Header -->
     <div class="page-header">
@@ -16,8 +18,7 @@
     <app-stats-cards [stats]="stats"></app-stats-cards>
 
     <!-- Search Toolbar -->
-    <app-search-toolbar (searchChanged)="onSearch($event)" (categoryChanged)="onCategoryChange($event)"
-        (statusChanged)="onStatusChange($event)" (exportClicked)="onExport()"></app-search-toolbar>
+    <app-search-toolbar></app-search-toolbar>
 
     <!-- Payment Table -->
     <app-payment-table [players]="players" (paymentToggled)="onPaymentToggle($event)"></app-payment-table>

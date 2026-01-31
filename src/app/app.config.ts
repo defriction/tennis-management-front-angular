@@ -38,7 +38,11 @@ import {
   heroXMark,
   heroChatBubbleLeftRight,
   heroSun,
-  heroMegaphone
+  heroMegaphone,
+  heroCalendarDays,
+  heroUserPlus,
+  heroGlobeAlt,
+  heroArrowRightOnRectangle
 } from '@ng-icons/heroicons/outline';
 
 import { routes } from './app.routes';
@@ -84,7 +88,11 @@ export const appConfig: ApplicationConfig = {
       heroXMark,
       heroChatBubbleLeftRight,
       heroSun,
-      heroMegaphone
+      heroMegaphone,
+      heroCalendarDays,
+      heroGlobeAlt,
+      heroUserPlus,
+      heroArrowRightOnRectangle
     })
   ]
 };

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent } from '@ng-icons/core';
+import { TopNavigation } from '../../../../shared/components/top-navigation/top-navigation';
 import { ActiveMatchCard, Match } from '../../components/active-match-card/active-match-card';
 import { UpcomingMatchCard, UpcomingMatch } from '../../components/upcoming-match-card/upcoming-match-card';
 import { ScoreInputPanel } from '../../components/score-input-panel/score-input-panel';
@@ -11,6 +12,7 @@ import { StatsSummary, Stats } from '../../components/stats-summary/stats-summar
   imports: [
     CommonModule,
     NgIconComponent,
+    TopNavigation,
     ActiveMatchCard,
     UpcomingMatchCard,
     ScoreInputPanel,

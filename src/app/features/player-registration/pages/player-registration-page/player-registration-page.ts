@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TopNavigation } from '../../../../shared/components/top-navigation/top-navigation';
 import { RegistrationProgress } from '../../components/registration-progress/registration-progress';
 import { IdentityCheckForm } from '../../components/identity-check-form/identity-check-form';
 import { TournamentSelector } from '../../components/tournament-selector/tournament-selector';
@@ -10,6 +11,7 @@ import { RegistrationSummary } from '../../components/registration-summary/regis
   selector: 'app-player-registration-page',
   imports: [
     CommonModule,
+    TopNavigation,
     RegistrationProgress,
     IdentityCheckForm,
     TournamentSelector,

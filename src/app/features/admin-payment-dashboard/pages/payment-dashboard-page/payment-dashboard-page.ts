@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent } from '@ng-icons/core';
+import { TopNavigation } from '../../../../shared/components/top-navigation/top-navigation';
 import { StatsCards } from '../../components/stats-cards/stats-cards';
 import { SearchToolbar } from '../../components/search-toolbar/search-toolbar';
 import { PaymentTable, Player } from '../../components/payment-table/payment-table';
 
 @Component({
   selector: 'app-payment-dashboard-page',
-  imports: [CommonModule, NgIconComponent, StatsCards, SearchToolbar, PaymentTable],
+  imports: [CommonModule, NgIconComponent, TopNavigation, StatsCards, SearchToolbar, PaymentTable],
   templateUrl: './payment-dashboard-page.html',
   styleUrl: './payment-dashboard-page.scss',
 })
