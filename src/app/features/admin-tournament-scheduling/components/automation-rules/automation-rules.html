@@ -1,0 +1,42 @@
+<section class="form-section">
+    <div class="section-header">
+        <span class="section-number">4</span>
+        <h3 class="section-title">Reglas de Automatización</h3>
+    </div>
+
+    <div class="rules-grid">
+        <!-- WhatsApp Notifications -->
+        <div class="rule-card">
+            <div class="rule-content">
+                <h4 class="rule-title">Notificaciones WhatsApp</h4>
+                <p class="rule-description">
+                    Envía actualizaciones automáticas de partidos y horarios directamente a los números de WhatsApp de
+                    los participantes.
+                </p>
+            </div>
+            <button (click)="toggleWhatsApp()" [class.toggle-active]="whatsappEnabled" class="toggle-switch"
+                role="switch" [attr.aria-checked]="whatsappEnabled">
+                <span class="toggle-slider"></span>
+            </button>
+        </div>
+
+        <!-- Auto-close Registrations -->
+        <div class="rule-card">
+            <div class="rule-content">
+                <h4 class="rule-title">Cierre Automático de Registros</h4>
+                <p class="rule-description">
+                    Detiene automáticamente la aceptación de nuevas inscripciones cuando se alcanza la capacidad o
+                    expira la fecha límite.
+                </p>
+                <div *ngIf="autoCloseEnabled" class="deadline-input">
+                    <span class="deadline-label">Fecha Límite:</span>
+                    <input [(ngModel)]="deadline" type="date" class="date-input" />
+                </div>
+            </div>
+            <button (click)="toggleAutoClose()" [class.toggle-active]="autoCloseEnabled" class="toggle-switch"
+                role="switch" [attr.aria-checked]="autoCloseEnabled">
+                <span class="toggle-slider"></span>
+            </button>
+        </div>
+    </div>
+</section>

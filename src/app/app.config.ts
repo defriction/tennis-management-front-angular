@@ -18,7 +18,14 @@ import {
   heroRectangleGroup,
   heroEllipsisVertical,
   heroChevronLeft,
-  heroChevronRight
+  heroChevronRight,
+  heroInformationCircle,
+  heroRectangleStack,
+  heroCalendar,
+  heroCog6Tooth,
+  heroBookmark,
+  heroPlus,
+  heroTrash
 } from '@ng-icons/heroicons/outline';
 
 import { routes } from './app.routes';
@@ -44,7 +51,14 @@ export const appConfig: ApplicationConfig = {
       heroRectangleGroup,
       heroEllipsisVertical,
       heroChevronLeft,
-      heroChevronRight
+      heroChevronRight,
+      heroInformationCircle,
+      heroRectangleStack,
+      heroCalendar,
+      heroCog6Tooth,
+      heroBookmark,
+      heroPlus,
+      heroTrash
     })
   ]
 };

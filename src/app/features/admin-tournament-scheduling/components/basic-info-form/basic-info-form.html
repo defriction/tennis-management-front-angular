@@ -1,0 +1,43 @@
+<section class="form-section">
+    <div class="section-header">
+        <span class="section-number">1</span>
+        <h3 class="section-title">Información Básica</h3>
+    </div>
+
+    <div class="form-card">
+        <div class="form-grid">
+            <!-- Tournament Name -->
+            <div class="form-group">
+                <label class="form-label">Nombre del Torneo</label>
+                <input [(ngModel)]="tournamentName" (ngModelChange)="onFormChange()" type="text" class="form-input"
+                    placeholder="ej. Torneo de Verano Invitacional 2024" />
+            </div>
+
+            <!-- Tournament Status -->
+            <div class="form-group">
+                <label class="form-label">Estado del Torneo</label>
+                <div class="select-wrapper">
+                    <select [(ngModel)]="tournamentStatus" (ngModelChange)="onFormChange()" class="form-select">
+                        <option value="setup">Fase de Configuración</option>
+                        <option value="registration">Registro Abierto</option>
+                        <option value="ongoing">En Progreso</option>
+                        <option value="completed">Completado</option>
+                    </select>
+                    <ng-icon name="heroChevronDown" class="select-icon" size="20"></ng-icon>
+                </div>
+            </div>
+
+            <!-- Start Date -->
+            <div class="form-group">
+                <label class="form-label">Fecha de Inicio</label>
+                <input [(ngModel)]="startDate" (ngModelChange)="onFormChange()" type="date" class="form-input" />
+            </div>
+
+            <!-- End Date -->
+            <div class="form-group">
+                <label class="form-label">Fecha de Finalización</label>
+                <input [(ngModel)]="endDate" (ngModelChange)="onFormChange()" type="date" class="form-input" />
+            </div>
+        </div>
+    </div>
+</section>

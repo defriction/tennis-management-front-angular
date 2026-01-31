@@ -1,0 +1,52 @@
+<section class="form-section">
+    <div class="section-header">
+        <div class="section-header-left">
+            <span class="section-number">2</span>
+            <h3 class="section-title">Gestión de Categorías</h3>
+        </div>
+        <button (click)="addCategory()" class="add-button">
+            <ng-icon name="heroPlus" size="18"></ng-icon>
+            <span>Agregar Categoría</span>
+        </button>
+    </div>
+
+    <div class="table-container">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>Nombre de Categoría</th>
+                    <th>Nivel de Habilidad</th>
+                    <th>Capacidad Máx.</th>
+                    <th>Tarifa (COP)</th>
+                    <th class="text-right">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categories">
+                    <td>
+                        <input [(ngModel)]="category.name" type="text" class="table-input" />
+                    </td>
+                    <td>
+                        <select [(ngModel)]="category.skillLevel" class="table-select">
+                            <option value="Profesional">Profesional</option>
+                            <option value="Amateur">Amateur</option>
+                            <option value="Sub 21">Sub 21</option>
+                            <option value="Sub 18">Sub 18</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input [(ngModel)]="category.maxCapacity" type="number" class="table-input table-input-small" />
+                    </td>
+                    <td>
+                        <input [(ngModel)]="category.fee" type="number" class="table-input table-input-small" />
+                    </td>
+                    <td class="text-right">
+                        <button (click)="deleteCategory(category.id)" class="delete-button">
+                            <ng-icon name="heroTrash" size="20"></ng-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

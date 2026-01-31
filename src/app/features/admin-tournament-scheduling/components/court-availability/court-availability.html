@@ -1,0 +1,47 @@
+<section class="form-section">
+    <div class="section-header">
+        <div class="section-header-left">
+            <span class="section-number">3</span>
+            <h3 class="section-title">Disponibilidad de Canchas</h3>
+        </div>
+        <div class="action-buttons">
+            <button (click)="applyToAll()" class="secondary-button">
+                <ng-icon name="heroRectangleStack" size="16"></ng-icon>
+                <span>Aplicar a Todas</span>
+            </button>
+            <button (click)="addCourt()" class="primary-button">
+                <ng-icon name="heroPlus" size="16"></ng-icon>
+                <span>Agregar Cancha</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="availability-grid">
+        <div class="grid-header">
+            <div class="time-header">Horario</div>
+            <div class="court-header">Cancha 1 (Salón Principal)</div>
+            <div class="court-header">Cancha 2 (Ala Norte)</div>
+        </div>
+
+        <div *ngFor="let slot of timeSlots" class="grid-row">
+            <div class="time-cell">{{ slot.time }}</div>
+            <div class="slot-cell">
+                <button (click)="toggleSlot(slot, 'court1')" [class.slot-available]="slot.court1Available"
+                    [class.slot-blocked]="!slot.court1Available" class="slot-button">
+                    {{ slot.court1Available ? 'DISPONIBLE' : 'BLOQUEADO' }}
+                </button>
+            </div>
+            <div class="slot-cell">
+                <button (click)="toggleSlot(slot, 'court2')" [class.slot-available]="slot.court2Available"
+                    [class.slot-blocked]="!slot.court2Available" class="slot-button">
+                    {{ slot.court2Available ? 'DISPONIBLE' : 'BLOQUEADO' }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-note">
+        <ng-icon name="heroInformationCircle" size="14"></ng-icon>
+        <span>Haz clic en un espacio para alternar entre Disponible y Bloqueado.</span>
+    </div>
+</section>

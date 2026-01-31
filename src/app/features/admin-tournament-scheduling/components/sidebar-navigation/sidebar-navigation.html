@@ -1,0 +1,50 @@
+<!-- Mobile Menu Toggle -->
+<button (click)="toggleMenu()" class="mobile-menu-toggle">
+    <ng-icon name="heroRectangleStack" size="24"></ng-icon>
+    <span>Menú</span>
+</button>
+
+<!-- Sidebar Overlay (mobile) -->
+<div *ngIf="isMenuOpen" (click)="toggleMenu()" class="sidebar-overlay"></div>
+
+<!-- Sidebar -->
+<aside [class.sidebar-open]="isMenuOpen" class="sidebar">
+    <!-- Header -->
+    <div class="sidebar-header">
+        <h1 class="sidebar-title">
+            <ng-icon name="heroTrophy" size="24"></ng-icon>
+            <span>Asistente de Torneo</span>
+        </h1>
+        <p class="sidebar-subtitle">Configuración MVP</p>
+        <!-- Close button for mobile -->
+        <button (click)="toggleMenu()" class="mobile-close-button">
+            <ng-icon name="heroChevronLeft" size="24"></ng-icon>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+        <a *ngFor="let section of sections" (click)="onSectionClick(section.id)"
+            [class.nav-link-active]="section.active" class="nav-link">
+            <ng-icon [name]="section.icon" size="20"></ng-icon>
+            <span>{{ section.label }}</span>
+        </a>
+    </nav>
+
+    <!-- Progress & Save -->
+    <div class="sidebar-footer">
+        <div class="progress-section">
+            <div class="progress-header">
+                <span class="progress-label">Progreso de Configuración</span>
+                <span class="progress-value">{{ progress }}%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="progress"></div>
+            </div>
+        </div>
+        <button (click)="onSave()" class="save-button">
+            <ng-icon name="heroBookmark" size="20"></ng-icon>
+            <span>Guardar Borrador</span>
+        </button>
+    </div>
+</aside>

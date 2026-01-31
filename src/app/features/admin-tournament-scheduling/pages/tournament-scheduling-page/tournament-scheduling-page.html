@@ -1,1 +1,38 @@
-<p>tournament-scheduling-page works!</p>
+<div class="page-container">
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>Crear Nuevo Torneo</h1>
+            <p>Define la estructura de tu torneo, gestiona categorías y configura la programación dinámica.</p>
+        </div>
+        <div class="header-actions">
+            <button (click)="onSave()" class="save-button">
+                <ng-icon name="heroBookmark" size="20"></ng-icon>
+                <span>Guardar</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Form Sections -->
+    <div class="content-sections">
+        <app-basic-info-form (formChanged)="onFormChange($event)"></app-basic-info-form>
+        <app-category-table></app-category-table>
+        <app-court-availability></app-court-availability>
+        <app-automation-rules></app-automation-rules>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-info">
+            <ng-icon name="heroCheckCircle" size="14"></ng-icon>
+            <span>Borrador guardado hace 2 minutos</span>
+        </div>
+        <div class="footer-actions">
+            <button (click)="onDiscard()" class="discard-button">Descartar</button>
+            <button (click)="onPublish()" class="publish-button">
+                <span>Publicar Torneo</span>
+                <ng-icon name="heroArrowRight" size="20"></ng-icon>
+            </button>
+        </div>
+    </footer>
+</div>
