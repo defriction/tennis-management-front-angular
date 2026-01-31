@@ -1,0 +1,21 @@
+<div class="upcoming-card">
+    <div class="card-header">
+        <span class="start-time">INICIO {{ match.startTime }}</span>
+        <span class="court-id">{{ match.courtId }}</span>
+    </div>
+
+    <div class="players-list">
+        <div class="player-item">
+            <ng-icon name="heroUser" size="12"></ng-icon>
+            <span>{{ match.player1 }}</span>
+        </div>
+        <div class="player-item">
+            <ng-icon name="heroUser" size="12"></ng-icon>
+            <span>{{ match.player2 }}</span>
+        </div>
+    </div>
+
+    <button (click)="onCheckIn()" class="checkin-button">
+        REGISTRAR JUGADORES
+    </button>
+</div>

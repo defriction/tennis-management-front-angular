@@ -1,1 +1,63 @@
-<p>tournament-home-page works!</p>
+<div class="page-container">
+    <!-- Tournament Header -->
+    <app-tournament-header></app-tournament-header>
+
+    <!-- Main Grid Layout -->
+    <div class="main-grid">
+        <!-- Left Column: Schedule -->
+        <div class="schedule-column">
+            <!-- Tabs & Search -->
+            <app-schedule-tabs></app-schedule-tabs>
+
+            <!-- Schedule Timeline -->
+            <div class="timeline">
+                <!-- Time Slot: 09:00 AM -->
+                <div class="time-slot">
+                    <div class="time-divider">
+                        <div class="divider-line"></div>
+                        <span class="time-label">Inicio 09:00 AM</span>
+                        <div class="divider-line"></div>
+                    </div>
+
+                    <div class="matches-list">
+                        <!-- Live Match -->
+                        <app-live-match-card *ngFor="let match of liveMatches" [match]="match"></app-live-match-card>
+
+                        <!-- Finished Match -->
+                        <app-finished-match-card *ngFor="let match of finishedMatches"
+                            [match]="match"></app-finished-match-card>
+                    </div>
+                </div>
+
+                <!-- Time Slot: 10:30 AM -->
+                <div class="time-slot">
+                    <div class="time-divider">
+                        <div class="divider-line"></div>
+                        <span class="time-label">Inicio 10:30 AM</span>
+                        <div class="divider-line"></div>
+                    </div>
+
+                    <div class="matches-list">
+                        <!-- Upcoming Matches -->
+                        <app-upcoming-match-card *ngFor="let match of upcomingMatches" [match]="match"
+                            (toggleNotification)="onToggleNotification($event)"></app-upcoming-match-card>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more">
+                <button class="load-more-button">Cargar Más Partidos</button>
+            </div>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <div class="sidebar-column">
+            <!-- Standings Widget -->
+            <app-standings-widget [standings]="standings"></app-standings-widget>
+
+            <!-- News Widget -->
+            <app-tournament-news-widget [news]="news"></app-tournament-news-widget>
+        </div>
+    </div>
+</div>

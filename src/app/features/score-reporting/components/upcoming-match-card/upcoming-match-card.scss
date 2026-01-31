@@ -1,0 +1,67 @@
+.upcoming-card {
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-light);
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.start-time {
+    font-size: 0.625rem;
+    font-weight: 700;
+    background-color: var(--surface);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    color: var(--text-tertiary);
+}
+
+.court-id {
+    font-size: 1.125rem;
+    font-weight: 900;
+    color: var(--text-tertiary);
+}
+
+.players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.player-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+
+    ng-icon {
+        color: var(--text-tertiary);
+    }
+}
+
+.checkin-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: var(--surface);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Lexend', sans-serif;
+
+    &:hover {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        color: var(--text-on-primary);
+    }
+}

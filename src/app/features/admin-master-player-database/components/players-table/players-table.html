@@ -1,0 +1,66 @@
+<div class="table-container">
+    <table class="players-table">
+        <thead>
+            <tr>
+                <th>Jugador</th>
+                <th>WhatsApp / ID</th>
+                <th class="text-center">Torneos</th>
+                <th>Categoría Actual</th>
+                <th>Confiabilidad</th>
+                <th class="text-right">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of players" (click)="onPlayerClick(player.id)" class="player-row">
+                <td>
+                    <div class="player-cell">
+                        <div class="player-avatar">{{ player.initials }}</div>
+                        <span class="player-name">{{ player.name }}</span>
+                    </div>
+                </td>
+                <td class="whatsapp-cell">{{ player.whatsapp }}</td>
+                <td class="text-center tournaments-cell">{{ player.tournaments }}</td>
+                <td>
+                    <span class="category-badge" [attr.data-color]="player.categoryColor">
+                        {{ player.category }}
+                    </span>
+                </td>
+                <td>
+                    <div class="reliability-cell">
+                        <div class="reliability-bar">
+                            <div class="reliability-fill" [attr.data-level]="getReliabilityColor(player.reliability)"
+                                [style.width.%]="player.reliability"></div>
+                        </div>
+                        <span class="reliability-value" [attr.data-level]="getReliabilityColor(player.reliability)">
+                            {{ player.reliability }}%
+                        </span>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <button (click)="onChatClick($event, player.id)" class="chat-button" title="Enviar mensaje">
+                        <ng-icon name="heroChatBubbleLeftRight" size="20"></ng-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <p class="pagination-info">
+            Mostrando {{ startResult }} a {{ endResult }} de {{ totalResults }} resultados
+        </p>
+        <div class="pagination-controls">
+            <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1" class="page-button">
+                <ng-icon name="heroChevronLeft" size="18"></ng-icon>
+            </button>
+            <button *ngFor="let page of [1, 2, 3]" (click)="onPageChange(page)" [class.active]="page === currentPage"
+                class="page-number">
+                {{ page }}
+            </button>
+            <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages" class="page-button">
+                <ng-icon name="heroChevronRight" size="18"></ng-icon>
+            </button>
+        </div>
+    </div>
+</div>

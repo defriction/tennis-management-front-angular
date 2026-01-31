@@ -1,0 +1,31 @@
+<div class="finished-card">
+    <div class="card-header">
+        <div class="match-info">
+            <span class="category">{{ match.category }} • {{ match.round }}</span>
+            <span class="court-info">Finalizado • {{ match.court }}</span>
+        </div>
+        <div class="final-badge">Final</div>
+    </div>
+
+    <div class="scores-section">
+        <!-- Team 1 (Winner) -->
+        <div class="team-row">
+            <span class="team-name winner">{{ match.team1 }}</span>
+            <div class="sets-scores">
+                <span *ngFor="let score of match.sets.team1" class="set-score winner">
+                    {{ score }}
+                </span>
+            </div>
+        </div>
+
+        <!-- Team 2 -->
+        <div class="team-row">
+            <span class="team-name">{{ match.team2 }}</span>
+            <div class="sets-scores">
+                <span *ngFor="let score of match.sets.team2" class="set-score">
+                    {{ score }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

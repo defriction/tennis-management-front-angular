@@ -25,7 +25,20 @@ import {
   heroCog6Tooth,
   heroBookmark,
   heroPlus,
-  heroTrash
+  heroTrash,
+  heroWifi,
+  heroBell,
+  heroSignal,
+  heroPencilSquare,
+  heroExclamationTriangle,
+  heroPaperAirplane,
+  heroFlag,
+  heroSquares2x2,
+  heroChartBar,
+  heroXMark,
+  heroChatBubbleLeftRight,
+  heroSun,
+  heroMegaphone
 } from '@ng-icons/heroicons/outline';
 
 import { routes } from './app.routes';
@@ -58,7 +71,20 @@ export const appConfig: ApplicationConfig = {
       heroCog6Tooth,
       heroBookmark,
       heroPlus,
-      heroTrash
+      heroTrash,
+      heroWifi,
+      heroBell,
+      heroSignal,
+      heroPencilSquare,
+      heroExclamationTriangle,
+      heroPaperAirplane,
+      heroFlag,
+      heroSquares2x2,
+      heroChartBar,
+      heroXMark,
+      heroChatBubbleLeftRight,
+      heroSun,
+      heroMegaphone
     })
   ]
 };

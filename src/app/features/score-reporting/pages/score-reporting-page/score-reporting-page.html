@@ -1,1 +1,69 @@
-<p>score-reporting-page works!</p>
+<div class="page-container">
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <div class="logo-badge">
+                    <ng-icon name="heroTrophy" size="20"></ng-icon>
+                </div>
+                <div class="nav-info">
+                    <h1 class="nav-title">JUDGE <span class="highlight">PRO</span></h1>
+                    <p class="nav-subtitle">Torneo de Verano Lakeside • Canchas 1-12</p>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="connection-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Servidor en Vivo Conectado</span>
+                </div>
+                <button class="icon-button">
+                    <ng-icon name="heroBell" size="20"></ng-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Left Column: Active & Upcoming Matches -->
+        <div class="left-column">
+            <!-- Active Matches Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <ng-icon name="heroSignal" size="24"></ng-icon>
+                        <span>Partidos Activos</span>
+                    </h2>
+                    <span class="live-badge">{{ activeMatches.length }} En Vivo</span>
+                </div>
+                <div class="matches-grid">
+                    <app-active-match-card *ngFor="let match of activeMatches" [match]="match"
+                        (updateScore)="onUpdateScore($event)"
+                        (reportIssue)="onReportIssue($event)"></app-active-match-card>
+                </div>
+            </section>
+
+            <!-- Upcoming Matches Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <ng-icon name="heroClock" size="24"></ng-icon>
+                        <span>Próximos Partidos</span>
+                    </h2>
+                </div>
+                <div class="upcoming-grid">
+                    <app-upcoming-match-card *ngFor="let match of upcomingMatches" [match]="match"
+                        (checkIn)="onCheckIn($event)"></app-upcoming-match-card>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Score Input Panel -->
+        <div class="right-column">
+            <div class="sticky-panel">
+                <app-score-input-panel></app-score-input-panel>
+                <app-stats-summary [stats]="stats"></app-stats-summary>
+            </div>
+        </div>
+    </main>
+</div>

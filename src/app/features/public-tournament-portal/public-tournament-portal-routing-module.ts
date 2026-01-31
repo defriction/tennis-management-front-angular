@@ -6,16 +6,6 @@ const routes: Routes = [
     path: '',
     loadComponent: () => import('./pages/tournament-home-page/tournament-home-page')
       .then(m => m.TournamentHomePage)
-  },
-  {
-    path: 'my-matches',
-    loadComponent: () => import('./pages/my-matches-page/my-matches-page')
-      .then(m => m.MyMatchesPage)
-  },
-  {
-    path: 'brackets',
-    loadComponent: () => import('./pages/brackets-page/brackets-page')
-      .then(m => m.BracketsPage)
   }
 ];
 

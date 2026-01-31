@@ -1,0 +1,221 @@
+.score-panel {
+    background-color: var(--surface);
+    border: 2px solid var(--primary);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(46, 125, 50, 0.15);
+}
+
+.panel-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--text-on-primary);
+}
+
+.court-badge {
+    font-size: 0.625rem;
+    font-weight: 900;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-on-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.panel-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.player-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-name {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.player-points {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+.sets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.set-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    label {
+        font-size: 0.625rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--text-tertiary);
+
+        &.current-label {
+            color: var(--primary);
+        }
+    }
+}
+
+.score-input {
+    width: 100%;
+    background-color: var(--background-tertiary);
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    color: var(--text-primary);
+    font-family: 'Lexend', sans-serif;
+    transition: all 0.2s;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    &.current-input {
+        background-color: rgba(46, 125, 50, 0.1);
+        border: 2px solid var(--primary-light);
+        color: var(--primary);
+    }
+}
+
+.divider {
+    position: relative;
+    padding: 0.5rem 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: var(--border-light);
+    }
+}
+
+.vs-text {
+    position: relative;
+    display: inline-block;
+    background-color: var(--surface);
+    padding: 0 0.5rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1rem;
+}
+
+.submit-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--text-on-primary);
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+    transition: all 0.2s;
+    font-family: 'Lexend', sans-serif;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 24px rgba(46, 125, 50, 0.4);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.secondary-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.draft-button {
+    padding: 0.75rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Lexend', sans-serif;
+
+    &:hover {
+        background-color: var(--surface-hover);
+        border-color: var(--border-medium);
+    }
+}
+
+.report-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ef4444;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Lexend', sans-serif;
+
+    &:hover {
+        background-color: rgba(239, 68, 68, 0.2);
+    }
+}

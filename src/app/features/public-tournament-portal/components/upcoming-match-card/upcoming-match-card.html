@@ -1,0 +1,21 @@
+<div class="upcoming-card">
+    <div class="match-details">
+        <div class="match-info">
+            <span class="category">{{ match.category }} • {{ match.round }}</span>
+            <h3 class="players">
+                {{ match.player1 }} <span class="vs">vs</span> {{ match.player2 }}
+            </h3>
+        </div>
+
+        <div class="match-timing">
+            <div class="time-info">
+                <span class="court">{{ match.court }}</span>
+                <span class="time">{{ match.time }}</span>
+            </div>
+            <button (click)="onNotifyClick()" [class.active]="match.notified" class="notify-button"
+                [title]="match.notified ? 'Notificación activada' : 'Activar notificación'">
+                <ng-icon [name]="match.notified ? 'heroBell' : 'heroBellSlash'" size="20"></ng-icon>
+            </button>
+        </div>
+    </div>
+</div>

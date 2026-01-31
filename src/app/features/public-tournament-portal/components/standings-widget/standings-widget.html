@@ -1,0 +1,27 @@
+<div class="standings-widget">
+    <div class="widget-header">
+        <h3 class="widget-title">Clasificación {{ groupName }}</h3>
+        <a href="#" class="view-all">Ver Todo</a>
+    </div>
+
+    <div class="table-container">
+        <table class="standings-table">
+            <thead>
+                <tr>
+                    <th>Pos</th>
+                    <th>Jugador</th>
+                    <th class="text-right">Pts</th>
+                    <th class="text-right">V-D</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let entry of standings" [class.leader]="entry.isLeader">
+                    <td class="position" [class.leader-pos]="entry.isLeader">{{ entry.position }}</td>
+                    <td class="player">{{ entry.player }}</td>
+                    <td class="points text-right">{{ entry.points }}</td>
+                    <td class="record text-right">{{ entry.wins }}-{{ entry.losses }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="page-container">
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-text">
+            <h2 class="page-title">Base de Datos Maestra de Jugadores</h2>
+            <p class="page-subtitle">Gestiona y analiza el rendimiento histórico de {{ stats.totalPlayers | number }}
+                jugadores.</p>
+        </div>
+        <div class="header-actions">
+            <button class="broadcast-button">
+                <ng-icon name="heroPaperAirplane" size="20"></ng-icon>
+                <span>Enviar Difusión</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Stats Cards -->
+    <app-database-stats-cards [stats]="stats"></app-database-stats-cards>
+
+    <!-- Search Toolbar -->
+    <app-player-search-toolbar></app-player-search-toolbar>
+
+    <!-- Players Table -->
+    <app-players-table [players]="players" [totalResults]="stats.totalPlayers"
+        (playerSelected)="onPlayerSelected($event)" (chatPlayer)="onChatPlayer($event)"></app-players-table>
+
+    <!-- Detail Panel -->
+    <app-player-detail-panel [player]="selectedPlayer" [isOpen]="isPanelOpen" (close)="onClosePanel()"
+        (sendWhatsApp)="onSendWhatsApp($event)" (editPlayer)="onEditPlayer($event)"
+        (inviteToTournament)="onInviteToTournament($event)"></app-player-detail-panel>
+</div>

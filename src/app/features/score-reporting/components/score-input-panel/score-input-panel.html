@@ -1,0 +1,63 @@
+<div class="score-panel">
+    <div class="panel-header">
+        <h3 class="panel-title">
+            <ng-icon name="heroRectangleGroup" size="20"></ng-icon>
+            <span>ENTRADA DE PUNTAJE</span>
+        </h3>
+        <span class="court-badge">CANCHA {{ courtId }}</span>
+    </div>
+
+    <div class="panel-content">
+        <!-- Player 1 Entry -->
+        <div class="player-entry">
+            <div class="player-header">
+                <span class="player-name">{{ player1Name }}</span>
+                <span class="player-points">Puntos: {{ player1Points }}</span>
+            </div>
+            <div class="sets-grid">
+                <div *ngFor="let set of player1Sets; let i = index" class="set-input">
+                    <label [class.current-label]="i === currentSet - 1">Set {{ i + 1 }}</label>
+                    <input [(ngModel)]="player1Sets[i]" [class.current-input]="i === currentSet - 1" type="number"
+                        class="score-input" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span class="vs-text">VS</span>
+        </div>
+
+        <!-- Player 2 Entry -->
+        <div class="player-entry">
+            <div class="player-header">
+                <span class="player-name">{{ player2Name }}</span>
+                <span class="player-points">Puntos: {{ player2Points }}</span>
+            </div>
+            <div class="sets-grid">
+                <div *ngFor="let set of player2Sets; let i = index" class="set-input">
+                    <label [class.current-label]="i === currentSet - 1">Set {{ i + 1 }}</label>
+                    <input [(ngModel)]="player2Sets[i]" [class.current-input]="i === currentSet - 1" type="number"
+                        class="score-input" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button (click)="onSubmit()" class="submit-button">
+                <span>ENVIAR RESULTADO FINAL</span>
+                <ng-icon name="heroPaperAirplane" size="20"></ng-icon>
+            </button>
+            <div class="secondary-actions">
+                <button (click)="onSaveDraft()" class="draft-button">
+                    GUARDAR BORRADOR
+                </button>
+                <button (click)="onReportIssue()" class="report-button">
+                    <ng-icon name="heroFlag" size="16"></ng-icon>
+                    <span>REPORTAR PROBLEMA</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

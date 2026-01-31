@@ -1,0 +1,22 @@
+<div class="header-container">
+    <div class="header-content">
+        <!-- Title Section -->
+        <div class="title-section">
+            <div class="title-row">
+                <h1 class="tournament-title">{{ tournamentName }}</h1>
+                <!-- Live Indicator -->
+                <span *ngIf="isLive" class="live-indicator">
+                    <span class="ping"></span>
+                    <span class="dot"></span>
+                </span>
+            </div>
+            <p class="tournament-info">{{ location }} • {{ dates }}</p>
+        </div>
+
+        <!-- Status Chip -->
+        <div class="status-chip">
+            <ng-icon name="heroSun" size="20"></ng-icon>
+            <p class="status-text">Estado: {{ status }}</p>
+        </div>
+    </div>
+</div>

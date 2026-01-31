@@ -1,0 +1,18 @@
+<div class="tabs-container">
+    <!-- Tabs -->
+    <div class="tabs-row">
+        <button *ngFor="let tab of tabs" (click)="onTabClick(tab.id)" [class.active]="activeTab === tab.id"
+            class="tab-button">
+            <p class="tab-label">{{ tab.label }}</p>
+        </button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-icon">
+            <ng-icon name="heroMagnifyingGlass" size="20"></ng-icon>
+        </div>
+        <input [(ngModel)]="searchQuery" (input)="onSearch()" type="text"
+            placeholder="Buscar jugador, cancha, o ID de partido..." class="search-input" />
+    </div>
+</div>

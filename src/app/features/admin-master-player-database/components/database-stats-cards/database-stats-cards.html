@@ -1,0 +1,30 @@
+<div class="stats-grid">
+    <!-- Total Players Card -->
+    <div class="stat-card">
+        <p class="stat-label">Total de Jugadores</p>
+        <div class="stat-content">
+            <p class="stat-value">{{ stats.totalPlayers | number }}</p>
+            <span class="stat-change">{{ stats.totalPlayersChange }}</span>
+        </div>
+    </div>
+
+    <!-- Active Players Card -->
+    <div class="stat-card">
+        <p class="stat-label">Activos este Mes</p>
+        <div class="stat-content">
+            <p class="stat-value">{{ stats.activePlayers }}</p>
+            <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="stats.activePercentage"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Avg Reliability Card -->
+    <div class="stat-card">
+        <p class="stat-label">Confiabilidad Promedio</p>
+        <div class="stat-content">
+            <p class="stat-value primary">{{ stats.avgReliability }}%</p>
+            <ng-icon name="heroCheckCircle" size="24" class="verified-icon"></ng-icon>
+        </div>
+    </div>
+</div>

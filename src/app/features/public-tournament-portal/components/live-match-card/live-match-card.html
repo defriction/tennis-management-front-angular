@@ -1,0 +1,69 @@
+<div class="match-card live">
+    <!-- Live Status Bar -->
+    <div class="status-bar"></div>
+
+    <!-- Content -->
+    <div class="card-content">
+        <!-- Header -->
+        <div class="card-header">
+            <div class="match-info">
+                <span class="category">{{ match.category }} • {{ match.round }}</span>
+                <span class="court-info">
+                    <ng-icon name="heroSignal" size="16" class="pulse-icon"></ng-icon>
+                    En Vivo • {{ match.court }}
+                </span>
+            </div>
+            <div class="match-id">
+                <span>ID: {{ match.matchId }}</span>
+            </div>
+        </div>
+
+        <!-- Scores -->
+        <div class="scores-section">
+            <!-- Player 1 -->
+            <div class="player-row">
+                <div class="player-info">
+                    <img *ngIf="match.player1.avatar" [src]="match.player1.avatar" [alt]="match.player1.name"
+                        class="player-avatar" />
+                    <div *ngIf="!match.player1.avatar" class="player-avatar-placeholder">
+                        {{ match.player1.initials }}
+                    </div>
+                    <span class="player-name">{{ match.player1.name }}</span>
+                    <ng-icon *ngIf="match.player1.isSeed" name="heroTrophy" size="16" class="seed-icon"></ng-icon>
+                </div>
+                <div class="sets-scores">
+                    <span *ngFor="let score of match.sets.player1; let i = index" [class.current-set]="i === currentSet"
+                        [class.past-set]="i < currentSet" class="set-score">
+                        {{ score }}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Player 2 -->
+            <div class="player-row">
+                <div class="player-info">
+                    <img *ngIf="match.player2.avatar" [src]="match.player2.avatar" [alt]="match.player2.name"
+                        class="player-avatar" />
+                    <div *ngIf="!match.player2.avatar" class="player-avatar-placeholder">
+                        {{ match.player2.initials }}
+                    </div>
+                    <span class="player-name dimmed">{{ match.player2.name }}</span>
+                </div>
+                <div class="sets-scores">
+                    <span *ngFor="let score of match.sets.player2; let i = index" [class.past-set]="true"
+                        class="set-score">
+                        {{ score }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="match.progress"></div>
+        </div>
+
+        <!-- Last Point -->
+        <p class="last-point">{{ match.lastPoint }}</p>
+    </div>
+</div>

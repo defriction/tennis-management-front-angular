@@ -1,0 +1,93 @@
+.finished-card {
+    background-color: var(--surface-dark);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    border: 1px solid transparent;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.match-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.category {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+}
+
+.court-info {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-dim);
+}
+
+.final-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--surface-darker);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.scores-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.team-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.team-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    flex: 1;
+
+    &.winner {
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+}
+
+.sets-scores {
+    display: flex;
+    gap: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1.125rem;
+}
+
+.set-score {
+    width: 1.5rem;
+    text-align: center;
+    color: var(--text-dim);
+
+    &.winner {
+        color: var(--primary);
+        font-weight: 700;
+    }
+}

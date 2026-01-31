@@ -1,0 +1,40 @@
+<aside class="sidebar">
+    <div class="sidebar-content">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo-badge">
+                <ng-icon name="heroTrophy" size="24"></ng-icon>
+            </div>
+            <div class="logo-text">
+                <h1 class="logo-title">Tennis Admin</h1>
+                <p class="logo-subtitle">Gestión del Club</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav-menu">
+            <a *ngFor="let item of navItems" [class.active]="item.active" class="nav-item" href="#">
+                <ng-icon [name]="item.icon" size="20"></ng-icon>
+                <span>{{ item.label }}</span>
+            </a>
+
+            <div class="nav-divider"></div>
+
+            <a class="nav-item" href="#">
+                <ng-icon name="heroCog6Tooth" size="20"></ng-icon>
+                <span>Configuración</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- User Profile Footer -->
+    <div class="sidebar-footer">
+        <div class="user-profile">
+            <div class="user-avatar">MS</div>
+            <div class="user-info">
+                <p class="user-name">Marcos Silva</p>
+                <p class="user-role">Director del Club</p>
+            </div>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,63 @@
+<div class="match-card">
+    <div class="match-header">
+        <div class="match-info">
+            <span class="court-category">{{ match.courtName }} • {{ match.category }}</span>
+            <div class="match-status">
+                <span class="status-dot"></span>
+                <span class="status-text">SET {{ match.currentSet }} • EN PROGRESO</span>
+            </div>
+        </div>
+        <div class="court-id">
+            <span class="court-number">{{ match.courtId }}</span>
+            <p class="court-label">ID Cancha</p>
+        </div>
+    </div>
+
+    <div class="match-scores">
+        <!-- Player 1 -->
+        <div class="player-row">
+            <div class="player-info">
+                <div class="player-avatar">{{ match.player1.initials }}</div>
+                <span class="player-name">
+                    {{ match.player1.name }}
+                    <span *ngIf="match.player1.seed" class="player-seed">[{{ match.player1.seed }}]</span>
+                </span>
+            </div>
+            <div class="score-sets">
+                <span *ngFor="let score of match.player1.sets; let i = index"
+                    [class.current-set]="i === match.currentSet - 1" [class.past-set]="i < match.currentSet - 1"
+                    class="set-score">
+                    {{ score }}
+                </span>
+            </div>
+        </div>
+
+        <!-- Player 2 -->
+        <div class="player-row">
+            <div class="player-info">
+                <div class="player-avatar">{{ match.player2.initials }}</div>
+                <span class="player-name">
+                    {{ match.player2.name }}
+                    <span *ngIf="match.player2.seed" class="player-seed">[{{ match.player2.seed }}]</span>
+                </span>
+            </div>
+            <div class="score-sets">
+                <span *ngFor="let score of match.player2.sets; let i = index"
+                    [class.current-set]="i === match.currentSet - 1" [class.past-set]="i < match.currentSet - 1"
+                    class="set-score">
+                    {{ score }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="match-actions">
+        <button (click)="onUpdateScore()" class="update-button">
+            <ng-icon name="heroPencilSquare" size="20"></ng-icon>
+            <span>ACTUALIZAR PUNTAJE</span>
+        </button>
+        <button (click)="onReportIssue()" class="issue-button">
+            <ng-icon name="heroExclamationTriangle" size="20"></ng-icon>
+        </button>
+    </div>
+</div>

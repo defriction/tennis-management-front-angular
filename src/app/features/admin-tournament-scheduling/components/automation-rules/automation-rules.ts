@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-automation-rules',
-  imports: [CommonModule, FormsModule, NgIconComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './automation-rules.html',
   styleUrl: './automation-rules.scss',
 })

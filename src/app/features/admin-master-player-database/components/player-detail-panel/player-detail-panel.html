@@ -1,0 +1,79 @@
+<div class="detail-panel" [class.open]="isOpen && player" *ngIf="player">
+    <!-- Header -->
+    <div class="panel-header">
+        <h3 class="panel-title">Perfil del Jugador</h3>
+        <button (click)="onClose()" class="close-button">
+            <ng-icon name="heroXMark" size="24"></ng-icon>
+        </button>
+    </div>
+
+    <!-- Content -->
+    <div class="panel-content">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-avatar">{{ player.initials }}</div>
+            <h4 class="profile-name">{{ player.name }}</h4>
+            <p class="profile-joined">Se unió al club en {{ player.joinedDate }}</p>
+
+            <div class="profile-actions">
+                <button (click)="onSendWhatsApp()" class="whatsapp-button">
+                    <ng-icon name="heroChatBubbleLeftRight" size="18"></ng-icon>
+                    <span>WhatsApp</span>
+                </button>
+                <button (click)="onEditPlayer()" class="edit-button">
+                    <ng-icon name="heroPencilSquare" size="20"></ng-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <p class="stat-label">Tasa de Victoria</p>
+                <p class="stat-value primary">{{ player.winRate }}%</p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-label">Ranking</p>
+                <p class="stat-value">#{{ player.rank }}</p>
+            </div>
+        </div>
+
+        <!-- Category Progress -->
+        <div class="section">
+            <h5 class="section-title">Progreso de Categoría</h5>
+            <div class="timeline">
+                <div *ngFor="let item of player.categoryHistory" class="timeline-item" [class.current]="item.current">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-title">{{ item.category }}</p>
+                        <p class="timeline-description">{{ item.date }} • {{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Performance -->
+        <div class="section">
+            <h5 class="section-title">Rendimiento Reciente</h5>
+            <div class="performance-list">
+                <div *ngFor="let perf of player.recentPerformance" class="performance-item" [class.win]="perf.isWin">
+                    <div class="performance-info">
+                        <span class="performance-name">{{ perf.tournament }}</span>
+                        <span class="performance-category">{{ perf.category }}</span>
+                    </div>
+                    <span class="performance-badge" [attr.data-color]="perf.resultColor">
+                        {{ perf.result }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="panel-footer">
+        <button (click)="onInviteToTournament()" class="invite-button">
+            <ng-icon name="heroPaperAirplane" size="20"></ng-icon>
+            <span>Invitar al Próximo Torneo</span>
+        </button>
+    </div>
+</div>
