@@ -22,6 +22,14 @@ export const routes: Routes = [
         loadChildren: () => import('./features/admin-master-player-database/admin-master-player-database-routing-module').then(m => m.AdminMasterPlayerDatabaseRoutingModule)
     },
     {
+        path: 'login',
+        loadComponent: () => import('./features/auth/pages/login-page/login-page').then(m => m.LoginPage)
+    },
+    {
+        path: 'register',
+        loadComponent: () => import('./features/auth/pages/register-page/register-page').then(m => m.RegisterPage)
+    },
+    {
         path: 'public-tournament-portal',
         loadChildren: () => import('./features/public-tournament-portal/public-tournament-portal-routing-module').then(m => m.PublicTournamentPortalRoutingModule)
     },

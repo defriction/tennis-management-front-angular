@@ -1,0 +1,92 @@
+<div class="auth-container">
+    <div class="auth-card">
+        <!-- Logo/Brand Section -->
+        <div class="auth-header">
+            <div class="brand-icon">
+                <ng-icon name="heroTrophy" size="48"></ng-icon>
+            </div>
+            <h1 class="auth-title">Bienvenido</h1>
+            <p class="auth-subtitle">Inicia sesión para gestionar tus torneos</p>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="error-alert">
+            <ng-icon name="heroExclamationCircle" size="20"></ng-icon>
+            <span>{{ errorMessage }}</span>
+        </div>
+
+        <!-- Login Form -->
+        <form (ngSubmit)="onSubmit()" class="auth-form">
+            <!-- Email Field -->
+            <div class="form-group">
+                <label class="form-label">
+                    <ng-icon name="heroEnvelope" size="16"></ng-icon>
+                    <span>Correo Electrónico</span>
+                </label>
+                <input [(ngModel)]="email" name="email" type="email" class="form-input" placeholder="tu@email.com"
+                    [disabled]="isLoading" required />
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label class="form-label">
+                    <ng-icon name="heroLockClosed" size="16"></ng-icon>
+                    <span>Contraseña</span>
+                </label>
+                <div class="password-input-wrapper">
+                    <input [(ngModel)]="password" name="password" [type]="showPassword ? 'text' : 'password'"
+                        class="form-input" placeholder="••••••••" [disabled]="isLoading" required />
+                    <button type="button" (click)="togglePasswordVisibility()" class="password-toggle"
+                        [disabled]="isLoading">
+                        <ng-icon [name]="showPassword ? 'heroEyeSlash' : 'heroEye'" size="20"></ng-icon>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="form-options">
+                <label class="checkbox-label">
+                    <input [(ngModel)]="rememberMe" name="rememberMe" type="checkbox" class="checkbox-input"
+                        [disabled]="isLoading" />
+                    <span>Recordarme</span>
+                </label>
+                <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" [disabled]="isLoading">
+                <ng-icon *ngIf="!isLoading" name="heroArrowRightOnRectangle" size="20"></ng-icon>
+                <ng-icon *ngIf="isLoading" name="heroArrowPath" size="20" class="spinning"></ng-icon>
+                <span>{{ isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión' }}</span>
+            </button>
+        </form>
+
+        <!-- Register Link -->
+        <div class="auth-footer">
+            <p class="footer-text">
+                ¿No tienes una cuenta?
+                <a routerLink="/register" class="footer-link">Regístrate aquí</a>
+            </p>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span>o continúa con</span>
+        </div>
+
+        <!-- Social Login (Optional) -->
+        <div class="social-buttons">
+            <button type="button" class="social-button social-button-full">
+                <ng-icon name="heroGlobeAlt" size="20"></ng-icon>
+                <span>Continuar con Google</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="auth-background">
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        <div class="bg-circle bg-circle-3"></div>
+    </div>
+</div>
