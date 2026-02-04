@@ -1,0 +1,133 @@
+<section class="form-section">
+    <div class="section-header">
+        <div class="section-header-left">
+            <span class="section-number">4</span>
+            <h3 class="section-title">Generador de Partidos</h3>
+        </div>
+        <div class="action-buttons">
+            <button (click)="addSamplePlayers()" class="secondary-button">
+                <ng-icon name="heroUserGroup" size="16"></ng-icon>
+                <span>Jugadores de Prueba</span>
+            </button>
+            <button (click)="clearAllPlayers()" class="secondary-button">
+                <ng-icon name="heroTrash" size="16"></ng-icon>
+                <span>Limpiar Todo</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mode Tabs -->
+    <div class="mode-tabs">
+        <button (click)="setMode('singles')" [class.active]="mode === 'singles'" class="mode-tab">
+            <ng-icon name="heroUserCircle" size="20"></ng-icon>
+            <span>Partidos Individuales</span>
+        </button>
+        <button (click)="setMode('groups')" [class.active]="mode === 'groups'" class="mode-tab">
+            <ng-icon name="heroUserGroup" size="20"></ng-icon>
+            <span>Grupos Aleatorios</span>
+        </button>
+    </div>
+
+    <!-- Player Management -->
+    <div class="player-section">
+        <h4 class="subsection-title">Jugadores Disponibles ({{ players.length }})</h4>
+
+        <div class="add-player-form">
+            <input [(ngModel)]="newPlayerName" (keyup.enter)="addPlayer()" type="text" class="form-input"
+                placeholder="Nombre del jugador" />
+            <button (click)="addPlayer()" class="primary-button">
+                <ng-icon name="heroPlus" size="16"></ng-icon>
+                <span>Agregar</span>
+            </button>
+        </div>
+
+        <div class="players-list" *ngIf="players.length > 0">
+            <div *ngFor="let player of players" class="player-card">
+                <div class="player-info">
+                    <ng-icon name="heroUser" size="16" class="player-icon"></ng-icon>
+                    <span class="player-name">{{ player.name }}</span>
+                </div>
+                <button (click)="removePlayer(player.id)" class="remove-button">
+                    <ng-icon name="heroXMark" size="16"></ng-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="empty-state" *ngIf="players.length === 0">
+            <ng-icon name="heroUserGroup" size="48"></ng-icon>
+            <p>No hay jugadores agregados</p>
+            <span>Agrega jugadores para comenzar a generar partidos o grupos</span>
+        </div>
+    </div>
+
+    <!-- Singles Mode -->
+    <div class="generator-section" *ngIf="mode === 'singles'">
+        <div class="generator-header">
+            <h4 class="subsection-title">Generar Partidos Individuales</h4>
+            <button (click)="generateSinglesMatches()" [disabled]="players.length < 2" class="primary-button">
+                <ng-icon name="heroSparkles" size="16"></ng-icon>
+                <span>Generar Partidos</span>
+            </button>
+        </div>
+
+        <div class="matches-grid" *ngIf="generatedMatches.length > 0">
+            <div *ngFor="let match of generatedMatches" class="match-card">
+                <div class="match-header">
+                    <span class="match-number">Partido #{{ match.id }}</span>
+                </div>
+                <div class="match-players">
+                    <div class="match-player">
+                        <ng-icon name="heroUser" size="16"></ng-icon>
+                        <span>{{ match.player1.name }}</span>
+                    </div>
+                    <div class="match-vs">VS</div>
+                    <div class="match-player" [class.bye]="!match.player2">
+                        <ng-icon [name]="match.player2 ? 'heroUser' : 'heroNoSymbol'" size="16"></ng-icon>
+                        <span>{{ match.player2 ? match.player2.name : 'BYE' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-note" *ngIf="generatedMatches.length > 0">
+            <ng-icon name="heroInformationCircle" size="14"></ng-icon>
+            <span>Se generaron {{ generatedMatches.length }} partidos con {{ players.length }} jugadores</span>
+        </div>
+    </div>
+
+    <!-- Groups Mode -->
+    <div class="generator-section" *ngIf="mode === 'groups'">
+        <div class="generator-header">
+            <h4 class="subsection-title">Generar Grupos Aleatorios</h4>
+            <div class="groups-config">
+                <label class="form-label">Número de Grupos:</label>
+                <input [(ngModel)]="numberOfGroups" type="number" min="2" max="10" class="form-input small" />
+                <button (click)="generateGroups()" [disabled]="players.length < numberOfGroups" class="primary-button">
+                    <ng-icon name="heroSparkles" size="16"></ng-icon>
+                    <span>Generar Grupos</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="groups-grid" *ngIf="generatedGroups.length > 0">
+            <div *ngFor="let group of generatedGroups" class="group-card">
+                <div class="group-header">
+                    <ng-icon name="heroUserGroup" size="20"></ng-icon>
+                    <span class="group-name">{{ group.name }}</span>
+                    <span class="group-count">{{ group.players.length }} jugadores</span>
+                </div>
+                <div class="group-players">
+                    <div *ngFor="let player of group.players" class="group-player">
+                        <ng-icon name="heroUser" size="14"></ng-icon>
+                        <span>{{ player.name }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-note" *ngIf="generatedGroups.length > 0">
+            <ng-icon name="heroInformationCircle" size="14"></ng-icon>
+            <span>Se distribuyeron {{ players.length }} jugadores en {{ generatedGroups.length }} grupos</span>
+        </div>
+    </div>
+</section>

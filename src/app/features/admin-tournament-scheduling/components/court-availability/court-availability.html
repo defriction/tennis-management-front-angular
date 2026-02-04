@@ -5,43 +5,156 @@
             <h3 class="section-title">Disponibilidad de Canchas</h3>
         </div>
         <div class="action-buttons">
-            <button (click)="applyToAll()" class="secondary-button">
-                <ng-icon name="heroRectangleStack" size="16"></ng-icon>
-                <span>Aplicar a Todas</span>
+            <button (click)="setAllAvailable()" class="secondary-button">
+                <ng-icon name="heroCheckCircle" size="16"></ng-icon>
+                <span>Todo Disponible</span>
             </button>
+            <button (click)="setAllBlocked()" class="secondary-button">
+                <ng-icon name="heroXCircle" size="16"></ng-icon>
+                <span>Todo Bloqueado</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Configuration Panel -->
+    <div class="config-panel">
+        <!-- Date Range -->
+        <div class="config-section">
+            <h4 class="config-title">
+                <ng-icon name="heroCalendar" size="18"></ng-icon>
+                <span>Rango de Fechas</span>
+            </h4>
+            <div class="date-range-inputs">
+                <div class="form-group">
+                    <label class="form-label">Fecha Inicio</label>
+                    <input [(ngModel)]="startDate" type="date" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Fecha Fin</label>
+                    <input [(ngModel)]="endDate" type="date" class="form-input" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Days of Week -->
+        <div class="config-section">
+            <h4 class="config-title">
+                <ng-icon name="heroCalendarDays" size="18"></ng-icon>
+                <span>Días de la Semana</span>
+                <span class="days-count">({{ selectedDaysCount }} seleccionados)</span>
+            </h4>
+            <div class="days-selector">
+                <button *ngFor="let day of daysOfWeek" (click)="toggleDay(day)" [class.selected]="day.selected"
+                    class="day-chip">
+                    {{ day.shortName }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Time Configuration -->
+        <div class="config-section">
+            <h4 class="config-title">
+                <ng-icon name="heroClock" size="18"></ng-icon>
+                <span>Configuración de Horarios</span>
+            </h4>
+            <div class="time-config-inputs">
+                <div class="form-group">
+                    <label class="form-label">Hora Inicio</label>
+                    <input [(ngModel)]="startTime" type="time" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Hora Fin</label>
+                    <input [(ngModel)]="endTime" type="time" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Intervalo (min)</label>
+                    <select [(ngModel)]="intervalMinutes" class="form-select">
+                        <option [value]="15">15 minutos</option>
+                        <option [value]="30">30 minutos</option>
+                        <option [value]="60">60 minutos</option>
+                        <option [value]="90">90 minutos</option>
+                        <option [value]="120">120 minutos</option>
+                    </select>
+                </div>
+                <button (click)="applyTimeConfiguration()" class="primary-button">
+                    <ng-icon name="heroArrowPath" size="16"></ng-icon>
+                    <span>Aplicar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Court Management -->
+    <div class="courts-management">
+        <h4 class="subsection-title">
+            <ng-icon name="heroRectangleGroup" size="18"></ng-icon>
+            <span>Gestión de Canchas ({{ courts.length }})</span>
+        </h4>
+
+        <div class="add-court-form">
+            <input [(ngModel)]="newCourtName" type="text" class="form-input" placeholder="Nombre de la cancha" />
+            <input [(ngModel)]="newCourtLocation" type="text" class="form-input" placeholder="Ubicación" />
             <button (click)="addCourt()" class="primary-button">
                 <ng-icon name="heroPlus" size="16"></ng-icon>
                 <span>Agregar Cancha</span>
             </button>
         </div>
+
+        <div class="courts-list">
+            <div *ngFor="let court of courts" class="court-card">
+                <div class="court-info">
+                    <div class="court-name">{{ court.name }}</div>
+                    <div class="court-location">{{ court.location }}</div>
+                </div>
+                <div class="court-actions">
+                    <button (click)="applyToAllSlots(court.id)" class="icon-button"
+                        title="Aplicar a todos los horarios">
+                        <ng-icon name="heroArrowsUpDown" size="16"></ng-icon>
+                    </button>
+                    <button (click)="removeCourt(court.id)" class="icon-button danger" title="Eliminar cancha">
+                        <ng-icon name="heroTrash" size="16"></ng-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="availability-grid">
-        <div class="grid-header">
-            <div class="time-header">Horario</div>
-            <div class="court-header">Cancha 1 (Salón Principal)</div>
-            <div class="court-header">Cancha 2 (Ala Norte)</div>
-        </div>
+    <!-- Availability Grid -->
+    <div class="availability-container">
+        <h4 class="subsection-title">
+            <ng-icon name="heroTableCells" size="18"></ng-icon>
+            <span>Tabla de Disponibilidad</span>
+        </h4>
 
-        <div *ngFor="let slot of timeSlots" class="grid-row">
-            <div class="time-cell">{{ slot.time }}</div>
-            <div class="slot-cell">
-                <button (click)="toggleSlot(slot, 'court1')" [class.slot-available]="slot.court1Available"
-                    [class.slot-blocked]="!slot.court1Available" class="slot-button">
-                    {{ slot.court1Available ? 'DISPONIBLE' : 'BLOQUEADO' }}
-                </button>
-            </div>
-            <div class="slot-cell">
-                <button (click)="toggleSlot(slot, 'court2')" [class.slot-available]="slot.court2Available"
-                    [class.slot-blocked]="!slot.court2Available" class="slot-button">
-                    {{ slot.court2Available ? 'DISPONIBLE' : 'BLOQUEADO' }}
-                </button>
+        <div class="availability-grid-wrapper">
+            <div class="availability-grid">
+                <div class="grid-header">
+                    <div class="time-header">Horario</div>
+                    <div *ngFor="let court of courts" class="court-header">
+                        <div class="court-header-name">{{ court.name }}</div>
+                        <div class="court-header-location">{{ court.location }}</div>
+                    </div>
+                </div>
+
+                <div *ngFor="let slot of timeSlots" class="grid-row">
+                    <div class="time-cell">
+                        {{ slot.time }}
+                    </div>
+                    <div *ngFor="let court of courts" class="slot-cell">
+                        <button (click)="toggleSlot(slot, court.id)"
+                            [class.slot-available]="getAvailability(slot, court.id)"
+                            [class.slot-blocked]="!getAvailability(slot, court.id)" class="slot-button">
+                            {{ getAvailability(slot, court.id) ? 'DISPONIBLE' : 'BLOQUEADO' }}
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="info-note">
         <ng-icon name="heroInformationCircle" size="14"></ng-icon>
-        <span>Haz clic en un espacio para alternar entre Disponible y Bloqueado.</span>
+        <span>Haz clic en un espacio para alternar entre Disponible y Bloqueado. Configura fechas, días y horarios según
+            tus necesidades.</span>
     </div>
 </section>

@@ -6,6 +6,7 @@ import { BasicInfoForm } from '../../components/basic-info-form/basic-info-form'
 import { CategoryTable } from '../../components/category-table/category-table';
 import { CourtAvailability } from '../../components/court-availability/court-availability';
 import { AutomationRules } from '../../components/automation-rules/automation-rules';
+import { MatchGenerator } from '../../components/match-generator/match-generator';
 
 @Component({
   selector: 'app-tournament-scheduling-page',
@@ -16,7 +17,8 @@ import { AutomationRules } from '../../components/automation-rules/automation-ru
     BasicInfoForm,
     CategoryTable,
     CourtAvailability,
-    AutomationRules
+    AutomationRules,
+    MatchGenerator
   ],
   templateUrl: './tournament-scheduling-page.html',
   styleUrl: './tournament-scheduling-page.scss',
